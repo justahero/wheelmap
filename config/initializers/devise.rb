@@ -1,6 +1,9 @@
 # Use this hook to configure devise mailer, warden hooks and so forth. The first
 # four configuration values can also be set straight in your models.
 Devise.setup do |config|
+  config.allow_insecure_sign_in_after_confirmation = true
+  config.secret_key = 'adb188c29b42eda8ea8645702b1d32f6ba43cad70c9a76139b400846bbca9064051cebe9946559153559f99a5af67873b0cc08d09cf68667c094bca5d64e0d1b'
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
   config.mailer_sender = "noreply@wheelmap.org"
