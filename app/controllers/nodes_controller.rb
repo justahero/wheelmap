@@ -9,6 +9,7 @@ class NodesController < ApplicationController
   include ActionView::Helpers::AssetTagHelper
   include NewRelic::Agent::MethodTracer
   include NodesHelper
+  include AuthenticateUserFromToken
 
   skip_before_filter :verify_authenticity_token
 

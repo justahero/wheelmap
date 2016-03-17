@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  include AuthenticateUserFromToken
 
   # Include Inherited Resources behaviour
   inherit_resources

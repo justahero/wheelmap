@@ -87,4 +87,5 @@ Wheelmap::Application.configure do
 
   config.ember.variant = :production
 
+  config.eager_load = true
 end

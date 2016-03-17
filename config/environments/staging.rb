@@ -84,4 +84,6 @@ Wheelmap::Application.configure do
   config.active_support.deprecation = :notify
 
   config.ember.variant = :development
+
+  config.eager_load = true
 end

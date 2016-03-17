@@ -1,18 +1,24 @@
 source 'https://rubygems.org'
 
 group :default do
-  gem 'rails', '3.2.22.1'
-  gem 'mysql2', '~> 0.3.0'
+  # gem 'rails', '3.2.22.1'
+  gem 'rails', '~> 4.0.0'
+  gem 'mysql2', '~> 0.3.18' # necessary for adapter to work
   gem 'activerecord-import', '<0.3.0', :require => false
-  gem 'rgeo'
-  gem 'rgeo-activerecord'
-  gem 'activerecord-mysql2spatial-adapter'
+
+  gem 'rgeo', '~> 0.5.0'
+  gem 'rgeo-activerecord', '~> 1.2.0'
+  gem 'activerecord-mysql2spatial-adapter', '~> 0.5.0.nonrelease'
+  gem 'protected_attributes' # for backwards compability of strong parameters
+  gem 'activeresource'
+
+
   gem 'oauth'
-  gem 'devise', '~> 3.1.0'
+  gem 'devise', '~> 3.2.0'
   gem 'devise-encryptable'
   gem 'redgreengrid', :git => 'https://github.com/christoph-buente/redgreengrid.git'
   gem 'haml'
-  gem 'formtastic', '2.2.1'
+  gem 'formtastic'
   gem 'formtastic-bootstrap'
   gem 'simple_form'
   gem 'delayed_job'
@@ -24,13 +30,16 @@ group :default do
   gem "routing-filter"
   gem 'newrelic_rpm'
   gem 'acts_as_api'
-  gem 'inherited_resources', '~> 1.4.0'
+  gem 'inherited_resources', '~> 1.6.0'
   gem 'has_scope'
   gem 'rake', '~> 10.4'
   gem 'yajl-ruby'
   gem 'ya2yaml'
   gem 'ruport'
-  gem 'memcache-client'
+
+  #gem 'memcache-client' # Rails 3.2
+  gem 'dalli'            # Rails 4.0
+
   # gem 'jammit'
   gem 'big_sitemap'
   gem 'unicorn'
@@ -45,8 +54,9 @@ group :default do
   gem 'multipart-post'
   gem 'sass-rails' # goes here instead of group assets because activeadmin uses it in the initializer
   gem 'sass', '~>3.3' # >= 3.3 is needed for BEM syntax
-  gem 'activeadmin', '0.6.6'
-  gem 'meta_search'
+
+  gem 'activeadmin', '~> 1.0.0.pre2'
+
   gem 'kaminari', '~> 0.14'
   gem 'kaminari-i18n'
   gem 'carrierwave', github: 'carrierwaveuploader/carrierwave', ref: 'c2ee2e8' # to be used before release 0.11.0 becaus of deprecation warnings
@@ -67,7 +77,7 @@ group :default do
   gem 'geocoder'
   gem 'ruby-progressbar'
   gem 'figaro'
-  gem 'strong_parameters'
+  # gem 'strong_parameters', '~> 0.2.0'
   gem 'apipie-rails'
   gem 'htmlentities', require: false
   gem 'test-unit', '~> 3.0', require: false
@@ -79,7 +89,7 @@ group :assets do
   gem 'jquery-rails', '2.3.0'
   gem 'coffee-rails'
   gem 'uglifier'
-  gem 'turbo-sprockets-rails3'
+  # gem 'turbo-sprockets-rails3'
   gem 'compass'
   gem 'compass-colors'
   gem 'compass-rails'
