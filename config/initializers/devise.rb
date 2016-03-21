@@ -34,6 +34,7 @@ Devise.setup do |config|
 
   config.secret_key = ENV['DEVISE_SECRET_KEY']
   config.allow_insecure_token_lookup = true
+
   # Set this to true to use Basic Auth for AJAX requests.  True by default.
   # config.http_authenticatable_on_xhr = true
 
