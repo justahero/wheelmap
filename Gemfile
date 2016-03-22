@@ -103,6 +103,7 @@ group :test do
   gem 'factory_girl_rails'
 
   gem 'capybara', '~> 2.6', '>= 2.6.2' # on mac, you need sudo port install libffi
+#  gem 'capybara-webkit'
   gem 'poltergeist'
   gem 'database_cleaner'
 
