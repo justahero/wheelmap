@@ -43,7 +43,7 @@ group :default do
   # gem 'jammit'
   gem 'big_sitemap'
   gem 'unicorn'
-  gem 'friendly_id', '~>4.0.0' # upgrade to 4.x was easy
+  gem 'friendly_id', '~> 5.0.5'
   gem 'will_paginate'
   gem 'omniauth-osm'
   gem 'rosemary'
