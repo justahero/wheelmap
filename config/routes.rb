@@ -146,7 +146,7 @@ Wheelmap::Application.routes.draw do
     end
 
     resources :locales,     :only => :index
-    # resources :node_types,  :only => [:index, :show]
+    resources :node_types,  :only => [:index, :show]
 
     resource :user, :except => [:index, :show, :new, :create, :edit, :update, :destroy] do
       resources :photos, :only => [:index, :destroy]
@@ -155,17 +155,13 @@ Wheelmap::Application.routes.draw do
       end
     end
 
-    match '/users/authenticate' => 'users#authenticate', via: :all
+    match '/users/authenticate' => 'users#authenticate', via: [:post]
 
     #Last route in routes.rb
-    match '*a', :to => 'api#not_found', :format => false, via: :get
+    match '*a', :to => 'api#not_found', :format => false, via: [:get, :post, :put, :delete]
   end
 
-  match "/dashboard",               :to => redirect("https://metrics.librato.com/share/dashboards/3wf885ot?duration=604800"), via: :get
-  match "/ziemlich-beste-freunde",  :to => redirect("http://blog.wheelmap.org/zbf"), via: :get
-  match "/goeslondon",              :to => redirect("http://blog.wheelmap.org/mitmachen/goes-london/"), via: :get
-  match "/goes-london",             :to => redirect("http://blog.wheelmap.org/mitmachen/goes-london/"), via: :get
-  match '/',                        :to => redirect("/map"), :as => 'roooot', via: :get
-
+  get "/dashboard", :to => redirect("https://metrics.librato.com/share/dashboards/3wf885ot?duration=604800")
+  get '/',          :to => redirect("/map"), :as => 'roooot'
 
 end
